@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	if err := db.InitLogger(); err != nil {
 		fmt.Println("Failed to initialize logger:", err)
 		os.Exit(1)

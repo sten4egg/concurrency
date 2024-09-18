@@ -14,7 +14,6 @@ type Engine struct {
 
 func NewEngine() *Engine {
 	return &Engine{
-		mu:      sync.Mutex{},
 		storage: make(map[string]string),
 	}
 }

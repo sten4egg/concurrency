@@ -12,7 +12,6 @@ type Command struct {
 }
 
 var (
-	commandRegex  = regexp.MustCompile(`^(SET|GET|DEL)\b`)
 	argumentRegex = regexp.MustCompile(`^(\w+)$`)
 )
 
@@ -23,7 +22,8 @@ func Parse(input string) (*Command, error) {
 	}
 
 	action := tokens[0]
-	if !commandRegex.MatchString(action) {
+
+	if action != "GET" && action != "SET" && action != "DEL" {
 		return nil, errors.New("invalid command")
 	}
 
